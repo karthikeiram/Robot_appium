@@ -8,6 +8,7 @@ ${NO_RESET}       ${True}    # Ensure these are boolean values as previously men
 ${FULL_RESET}     ${False}
 ${Get_Started_Button}    accessibility_id=Get Started  
 ${Ph_field}   //android.widget.EditText
+${Ph_num}     8296924782
 ${Continue_button}    accessibility_id=Continue
 ${Skip_Button}    accessibility_id=SKIP       
 ${Permission_1}   xpath=//android.widget.Button[@resource-id="com.android.permissioncontroller:id/permission_allow_button"]
@@ -26,6 +27,7 @@ ${Profile}    xpath=//*[contains(@content-desc, 'Personal Info')]
 ${Back}     xpath=//android.widget.ImageView[@content-desc="Profile"]/android.widget.ImageView
 ${Documents}    accessibility_id=Documents
 @{List_1}   1   2 
+@{List_2}   1   2   3
 ${Back_button}     xpath=//android.widget.ImageView
 ${Violette}     accessibility_id=Violette
 ${Crash_alert}    xpath=//*[contains(@content-desc, 'CRASH ALERT')]
@@ -35,6 +37,7 @@ ${Delta_watch}   xpath=*[contains(@content-desc, 'DELTA WATCH')]
 ${Hill_hold}    accessibility_id=HILL HOLD
 ${ABS}    xpath=//*[contains(@content-desc, 'ABS')]
 ${TC}   xpath=//*[contains(@content-desc, 'TC')]
+${Regen}   class_name=android.widget.SeekBar
 ${Energy}   accessibility_id=ENERGY
 ${Charge_History}    accessibility_id=View
 ${Trips}    accessibility_id=TRIPS
@@ -48,4 +51,9 @@ ${TPMS}    xpath=//*[contains(@content-desc, 'Tyre Pressure')]
 ${Battery}    xpath=//*[contains(@content-desc, 'Battery Health')]
 ${Search}    accessibility_id=Search
 ${Search_Bar}    
-
+${Offline page}  accessibility_id=Could not establish connection with bike. Please check your phone's internet connection
+${ADB_PATH}    C:\\Users\\Karthikei Ram G U\\AppData\\Local\\Android\\Sdk\\platform-tools\\adb.exe
+${Front_psi}     xpath=//android.view.View[contains(@content-desc, 'PSI')][1]
+${ODO}    xpath=//*[contains(@content-desc, 'ODOMETER')]
+${contacts_permission}     android.permission.READ_CONTACTS
+${offline}     xpath=//android.widget.ImageView[@content-desc="Could not establish connection with bike. Please check your phone's internet connection"]

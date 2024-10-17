@@ -2,6 +2,10 @@
 Library    AppiumLibrary    run_on_failure=AppiumLibrary.CapturePageScreenshot
 Resource   keywords.robot
 Resource   variables.robot
+Library    Process
+Library    DateTime
+Library    OperatingSystem
+Library    Screenshot
 *** Keywords ***
  Open Application With Options
     [Arguments]    ${remote_url}    ${device_name}    ${app_path}    ${no_reset}    ${full_reset}    ${app_package}    ${app_activity}
@@ -14,10 +18,14 @@ Perform Action Based on Condition
     Run Keyword If    '${condition}' == 'true'    Log    Condition is true
     ...    ELSE    Log    Condition is false
 
-Take Screenshot On Failure
-    ${timestamp}=    Get Time    %Y%m%d_%H%M%S
-    ${filename}=    Set Variable    screenshot_${timestamp}.png
-    Capture Page Screenshot    ${filename}
-    Log    Screenshot saved as ${filename}
-Capture Screenshot If Failed
-    Run Keyword If    '${TEST STATUS}' == 'FAIL'    Take Screenshot On Failure    
+Capture Screenshot On Failure
+    ${timestamp}=    Get Current Date    %Y-%m-%d_%H-%M-%S
+    Run Keyword If    '${TEST STATUS}' == 'FAIL'    Capture Page Screenshot    screenshots/screenshot_${TEST NAME}_${timestamp}.png
+Turn On Wifi
+    Run Process    ${ADB_PATH}   shell    svc    wifi    enable    
+Turn Off Wifi
+    Run Process    ${ADB_PATH}   shell    svc    wifi    disable   
+Check Variable Presence
+    # Example to check if a text element with ${VARIABLE_TO_CHECK} is present
+    ${is_present}=    Run Keyword And Return Status    Length Should Be    ${offline}    1
+    RETURN    ${is_present}    
