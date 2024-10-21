@@ -3,7 +3,6 @@ Resource   keywords.robot
 Resource   variables.robot
 Library    OperatingSystem
 Library    Process
-Library    colorcheck.py
 Library    Collections
 
 *** Test Cases ***
@@ -87,6 +86,7 @@ TC-2 Open Application & Login
         END
         Sleep    3
     END
+    
 
 
 
