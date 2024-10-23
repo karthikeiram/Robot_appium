@@ -12,7 +12,14 @@ Library    Screenshot
     &{options}=    Create Dictionary    deviceName=${device_name}    app=${app_path}    noReset=${no_reset}    fullReset=${full_reset}
     Open Application    ${remote_url}    platformName=Android    automationName=UiAutomator2    appium:options=${options}    appium:appPackage=${app_package}    appium:appActivity=${app_activity}
 
+Start Appium Server
+    Start Process    ${Appium Path}    --port ${Appium Port}
+    Sleep    5s  # Wait for the server to start
+    Log    Appium server started on port ${APPIUM_PORT}
 
+Stop Appium Server
+    Terminate Process    appium
+    Log    Appium server stopped
 Perform Action Based on Condition
     [Arguments]    ${condition}
     Run Keyword If    '${condition}' == 'true'    Log    Condition is true
@@ -21,8 +28,10 @@ Perform Action Based on Condition
 Capture Screenshot On Failure
     ${timestamp}=    Get Current Date    %Y-%m-%d_%H-%M-%S
     Run Keyword If    '${TEST STATUS}' == 'FAIL'    Capture Page Screenshot    screenshots/screenshot_${TEST NAME}_${timestamp}.png
+# Defining Keyword for turning on wifi    
 Turn On Wifi
-    Run Process    ${ADB_PATH}   shell    svc    wifi    enable    
+    Run Process    ${ADB_PATH}   shell    svc    wifi    enable
+# Defining Keyword for turning off wifi         
 Turn Off Wifi
     Run Process    ${ADB_PATH}   shell    svc    wifi    disable   
 Check Variable Presence

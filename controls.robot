@@ -8,7 +8,6 @@ Opening Controls
      # Entering Controls
      Sleep    3
      
-     
      Log To Console    Swiping left on the home screen to enter controls
      Swipe    1015    1220    100    1220
      Sleep    2

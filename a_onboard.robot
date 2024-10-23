@@ -7,13 +7,11 @@ Library    Collections
 
 *** Test Cases ***
 TC-1 Offline Scenario
-
   [Setup]    Open Application With Options    ${REMOTE_URL}    ${DEVICE_NAME}    ${APP_PATH}    ${NO_RESET}    ${FULL_RESET}    ${APP_PACKAGE}    ${APP_ACTIVITY}  
   [Teardown]    Capture Page Screenshot
   Turn Off Wifi
   Sleep  2
-   ${desc}=    Get Element Attribute    xpath=//android.widget.ImageView[@content-desc="Could not establish connection with bike. Please check your phone's internet connection"]    content-desc
-    Run Keyword If    '${offline}' in ${desc}    Log to console    Test Passed    ELSE    Log to console    Test Failed
+  Page Should Contain Element    ${offline}
 
 TC-2 Open Application & Login
   [Setup]    Open Application With Options    ${REMOTE_URL}    ${DEVICE_NAME}    ${APP_PATH}    ${NO_RESET}    ${FULL_RESET}    ${APP_PACKAGE}    ${APP_ACTIVITY}  
@@ -85,9 +83,9 @@ TC-2 Open Application & Login
             Run Keyword And Ignore Error    Click Element    ${BLE_Permission}
         END
         Sleep    3
+
     END
     
-
 
 
 

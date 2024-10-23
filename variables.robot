@@ -1,5 +1,7 @@
 *** Variables ***
 ${REMOTE_URL}    http://127.0.0.1:4723
+${Appium Path}   C:\Users\Karthikei Ram G U\AppData\Roaming\npm
+${Appium Port}   4723
 ${DEVICE_NAME}   samsung SM-A356E
 ${APP_PATH}      C:\\Users\\Karthikei Ram G U\\Downloads\\app-debug-android.apk
 ${APP_PACKAGE}   app.ultraviolette.uv_mobile_app
@@ -56,4 +58,14 @@ ${ADB_PATH}    C:\\Users\\Karthikei Ram G U\\AppData\\Local\\Android\\Sdk\\platf
 ${Front_psi}     xpath=//android.view.View[contains(@content-desc, 'PSI')][1]
 ${ODO}    xpath=//*[contains(@content-desc, 'ODOMETER')]
 ${contacts_permission}     android.permission.READ_CONTACTS
-${offline}     xpath=//android.widget.ImageView[@content-desc="Could not establish connection with bike. Please check your phone's internet connection"]
+${offline}     accessibility_id=Could not establish connection with bike. Please check your phone's internet connection
+${Synced timing}    xpath=//*[contains(@content-desc, 'Synced')]
+${Violette Button}  xpath=//android.widget.FrameLayout[@resource-id="android:id/content"]/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.widget.ImageView[3]
+${Range}    xpath=//*[contains(@content-desc, 'KM')]
+${SOC}     xpath=//*[contains(@content-desc, '%')]
+${Navigation Text}   accessibility_id=NAVIGATION
+${Ready text}    accessibility_id=READY
+${Navigate icon text}    accessibility_id=Navigate
+${Weekly Kms}   xpath=//*[contains(@content-desc, 'km')]
+${This week}    accessibility_id=THIS WEEK
+${Statistics icon text}   accessibility_id=Statistics
