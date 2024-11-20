@@ -35,34 +35,6 @@ Open Settings
       Sleep   3
       Swipe    926    1260    138    1260
     END
-
+    
   Log To Console    Navigating Back  
   Click Element    ${Back_button}
-
-  Log To Console    Opening Violette
-  Click Element    ${Violette}
-  Sleep    2
-
-  Log To Console    Clicking on Crash Alert
-  Click Element    ${Crash_alert}
-
-  Log To Console    If permission is asked, allowing the permission
-
-  ${STATUS}    Run Keyword And Return Status   Wait Until Element Is Visible   ${Crash_alert_permission}
-  IF  ${STATUS} == True
-   Log To Console   Allowing Permission as permission was asked.
-   Click Element     ${Crash_alert_permission}
-  ELSE
-   Log To Console    No permission asked
-  END
-  
-  Sleep    2
-
-  #Navigating Back
-  Log To Console    Navigating back from crash alert Screen
-  Click Element    ${Back_button}
-  Sleep   3
-  #Opening ACWS
-  Click Element     ${Back_button}
-  #Opening Delta Watch
-  Go Back

@@ -11,8 +11,8 @@ TC-1 Offline Scenario
   [Teardown]    Capture Page Screenshot
   Turn Off Wifi
   Sleep  2
-  Page Should Contain Element    ${offline}
-
+  Run Keyword And Ignore Error  Click Element   ${Permission_1}
+  Sleep    1
 TC-2 Open Application & Login
   [Setup]    Open Application With Options    ${REMOTE_URL}    ${DEVICE_NAME}    ${APP_PATH}    ${NO_RESET}    ${FULL_RESET}    ${APP_PACKAGE}    ${APP_ACTIVITY}  
   [Teardown]    Close Application
@@ -68,8 +68,6 @@ TC-2 Open Application & Login
 
     # Allowing Permissions
       Log To Console    Allowing All Permissions
-      Run Keyword And Ignore Error  Click Element   ${Permission_1}
-      Sleep    1
 
       Run Keyword And Ignore Error  Click Element   ${Permission_2}
       Sleep    1

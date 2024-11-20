@@ -7,11 +7,11 @@ Resource    keywords.robot
 HomeScreen
     [Setup]    Open Application With Options    ${REMOTE_URL}    ${DEVICE_NAME}    ${APP_PATH}    ${NO_RESET}    ${FULL_RESET}    ${APP_PACKAGE}    ${APP_ACTIVITY} 
     # Checking for elements on home page
-        ${result}   Run Keyword    Page Should Contain Element   ${Hello_pilot}
+        ${result}   ${error}   Run Keyword    Page Should Contain Element   ${Hello_pilot}
         Run Keyword If    '${result}' == 'PASS'    Log to console   Hello Pilot is present
         ...    ELSE    Log to console    Hello Pilot is not present
     # Checking for Synced timings
-        ${result}   Run Keyword    Page Should Contain Element    ${Synced timing}
+        ${result}   ${error}   Run Keyword    Page Should Contain Element    ${Synced timing}
         Run Keyword If    '${result}' == 'PASS'    Log to console   Synced Timing is present
         ...    ELSE    Log to console    Synced Timing is not present
     # Checking for the violette Button
@@ -64,14 +64,14 @@ Statistics
         ${result}   ${error}   Run Keyword And Ignore Error    Page Should Contain Element    ${Synced timing}
         Run Keyword If    '${result}' == 'PASS'    Log to console   Synced Timing is present
         ...    ELSE    Log to console    Synced Timing is not present
-    # Checking for the range
+    # Checking for This week kms
         ${content_desc}    Get Element Attribute    ${Weekly Kms}    content-desc
-        Log To Console     This Week kms:: ${content_desc}
-    # Checking for Ready text
+        Log To Console     This Week kms: ${content_desc}
+    # Checking for This Week text
         ${result}   ${error}   Run Keyword And Ignore Error    Page Should Contain Element    ${This week}
         Run Keyword If    '${result}' == 'PASS'    Log to console   This Week text is Present
         ...    ELSE    Log to console    This Week text is not present 
-    # Checking for Navigate Icon Text
+    # Checking for Statistics Icon Text
         ${result}   ${error}   Run Keyword And Ignore Error    Page Should Contain Element    ${Statistics icon text}
         Run Keyword If    '${result}' == 'PASS'    Log to console  Statistics icon text is Present
         ...    ELSE    Log to console    Statistics icon text is not present 

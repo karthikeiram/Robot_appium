@@ -7,7 +7,7 @@ Library    DateTime
 Library    OperatingSystem
 Library    Screenshot
 *** Keywords ***
- Open Application With Options
+Open Application With Options
     [Arguments]    ${remote_url}    ${device_name}    ${app_path}    ${no_reset}    ${full_reset}    ${app_package}    ${app_activity}
     &{options}=    Create Dictionary    deviceName=${device_name}    app=${app_path}    noReset=${no_reset}    fullReset=${full_reset}
     Open Application    ${remote_url}    platformName=Android    automationName=UiAutomator2    appium:options=${options}    appium:appPackage=${app_package}    appium:appActivity=${app_activity}

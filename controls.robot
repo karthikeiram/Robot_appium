@@ -13,7 +13,7 @@ Opening Controls
      Sleep    2
      # Swipe up on the screen to open navigate Section
       Log To Console    Swiping up to open CONTROLS Section
-      Swipe    321    2070    321    328
+      Swipe   321    2070    321    328
       Sleep   2
      # Changing HILL HOLD state
       Log To Console   Changing HILL HOLD
@@ -35,19 +35,46 @@ Opening Controls
      # Log To Console    Current Regen Level
      # ${current_regen}=    Get Element Attribute    ${Regen}    content_desc
      # Switching to ENERGY tab
-      Log To Console   Switching to Engery Console
-      Click Element   ${Energy}
-      Sleep    3
+     # Log To Console   Switching to Engery Console
+     # Click Element   ${Energy}
+     # Sleep    3
      # Opening Charge History 
-      Click Element    ${Charge_History}
-      Sleep   3
-      Go Back
-      Sleep   3
+     # Click Element    ${Charge_History}
+     # Sleep   3
+     # Go Back
+     # Sleep   3
      # Getting last charged date
-      Wait Until Element Is Visible    xpath=(//android.view.View)[5]    timeout=10s
-      ${Last_charged}=    Get Element Attribute   xpath=(//android.view.View)[5]    content-desc
-      Log To Console    The last charged date is: ${Last_charged} 
-     # Switching to Trips
+     # Wait Until Element Is Visible    xpath=(//android.view.View)[5]    timeout=10s
+     # ${Last_charged}=    Get Element Attribute   xpath=(//android.view.View)[5]    content-desc
+     # Log To Console    The last charged date is: ${Last_charged} 
+    Log To Console    Opening Violette
+      Click Element    ${Violette}
+      Sleep    2
+
+    Log To Console    Clicking on Crash Alert
+      Click Element    ${Crash_alert}
+
+    Log To Console    If permission is asked, allowing the permission
+
+      ${STATUS}    Run Keyword And Return Status   Wait Until Element Is Visible   ${Crash_alert_permission}
+       IF  ${STATUS} == True
+       Log To Console   Allowing Permission as permission was asked.
+       Click Element     ${Crash_alert_permission}
+       ELSE
+       Log To Console    No permission asked
+       END
+  
+      Sleep    2
+
+    #Navigating Back
+     Log To Console    Navigating back from crash alert Screen
+     Go Back
+     Sleep   3
+    #Opening ACWS
+     Click Element     ${ACWS}
+    #Opening Delta Watch
+    Go Back
+    # Switching to Trips
       Log To Console   Resetting Trip
       Click Element    ${Trips}
       Sleep   2

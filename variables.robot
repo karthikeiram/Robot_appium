@@ -3,8 +3,8 @@ ${REMOTE_URL}    http://127.0.0.1:4723
 ${Appium Path}   C:\Users\Karthikei Ram G U\AppData\Roaming\npm
 ${Appium Port}   4723
 ${DEVICE_NAME}   samsung SM-A356E
-${APP_PATH}      C:\\Users\\Karthikei Ram G U\\Downloads\\app-debug-android.apk
-${APP_PACKAGE}   app.ultraviolette.uv_mobile_app
+${APP_PATH}      C:\\Users\\Karthikei Ram G U\\Downloads\\app-debug 2.apk
+${APP_PACKAGE}   com.ultraviolette.uvapp
 ${APP_ACTIVITY}  com.ultraviolette.uv.ultraviolette.MainActivity
 ${NO_RESET}       ${True}    # Ensure these are boolean values as previously mentioned
 ${FULL_RESET}     ${False}
@@ -31,10 +31,10 @@ ${Documents}    accessibility_id=Documents
 @{List_1}   1   2 
 @{List_2}   1   2   3
 ${Back_button}     xpath=//android.widget.ImageView
-${Violette}     accessibility_id=Violette
+${Violette}     accessibility_id=VIOLETTE
 ${Crash_alert}    xpath=//*[contains(@content-desc, 'CRASH ALERT')]
 ${Crash_alert_permission}    id=com.android.permissioncontroller:id/permission_allow_button
-${ACWS}    accessibility_id=ON AC.W.S
+${ACWS}    accessibility_id=A.C.W.S
 ${Delta_watch}   xpath=*[contains(@content-desc, 'DELTA WATCH')]
 ${Hill_hold}    accessibility_id=HILL HOLD
 ${ABS}    xpath=//*[contains(@content-desc, 'ABS')]
